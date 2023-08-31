@@ -1,11 +1,13 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nicoz.NZWanderlust.Entity.Post;
-import com.nicoz.NZWanderlust.Repository.PostRepository;
+import com.nicoz.NZWanderlust.Entities.Post;
+import com.nicoz.NZWanderlust.Repositories.PostRepository;
 
 @Service
 public class PostService {
@@ -47,9 +49,14 @@ public class PostService {
 		return postRepository.findById(id).get();
 	}
 	
+	
+    public List<Post> getPosts(){
+        return postRepository.findAll();
+    }
+	
 	@Transactional
-	public Post updatePost(Post post)  {
-		Post postToUpdate = searchPost(post.getPostID());
+	public Post updatePost(Integer id, Post post)  {
+		Post postToUpdate = searchPost(id);
 		postToUpdate.setSellerID(post.getSellerID());
 		postToUpdate.setTitle(post.getTitle());		
 		postToUpdate.setDescription(post.getDescription());	

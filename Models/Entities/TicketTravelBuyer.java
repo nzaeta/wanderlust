@@ -1,9 +1,11 @@
-package com.nicoz.NZWanderlust.Entity;
+package com.nicoz.NZWanderlust.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 import java.time.LocalDate;
 
@@ -12,7 +14,9 @@ public class TicketTravelBuyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ticketTravelBuyerId;
-    private Long postId;
+    
+    @ManyToOne
+    private Post post;  
     private Long buyerId;
     private String price;
     private LocalDate startDate;
@@ -26,12 +30,12 @@ public class TicketTravelBuyer {
         this.ticketTravelBuyerId = ticketTravelBuyerId;
     }
 
-    public Long getPostId() {
-        return postId;
+    public Post getPost() {
+        return post;
     }
 
-    public void setPostId(Long postId) {
-        this.postId = postId;
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public Long getBuyerId() {

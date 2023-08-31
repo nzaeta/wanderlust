@@ -1,8 +1,11 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Entity.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
-import com.nicoz.NZWanderlust.Repository.TicketTravelBuyerRepository;
+import com.nicoz.NZWanderlust.Repositories.PostRepository;
+import com.nicoz.NZWanderlust.Repositories.TicketTravelBuyerRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,11 +24,14 @@ public class TicketTravelBuyerService {
     public List<TicketTravelBuyer> getTicketTravelBuyers(){
         return ticketTravelBuyerRepository.findAll();
     }
+    
+	@Autowired
+	private PostService postService;
 
 
     public void addTicketTravelBuyer(NewTicketTravelBuyerRequest ticketTravelBuyerRequest){
         TicketTravelBuyer ticketTravelBuyer = new TicketTravelBuyer();
-        ticketTravelBuyer.setPostId(ticketTravelBuyerRequest.getPostId());
+        ticketTravelBuyer.setPost(postService.searchPost(ticketTravelBuyerRequest.getPostId().intValue()));
         ticketTravelBuyer.setBuyerId(ticketTravelBuyerRequest.getBuyerId());
         ticketTravelBuyer.setPrice(ticketTravelBuyerRequest.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerRequest.getStartDate());
@@ -39,7 +45,7 @@ public class TicketTravelBuyerService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
-        ticketTravelBuyer.setPostId(ticketTravelBuyerDetails.getPostId());
+//        ticketTravelBuyer.setPost(ticketTravelBuyerDetails.getPost());
         ticketTravelBuyer.setBuyerId(ticketTravelBuyerDetails.getBuyerId());
         ticketTravelBuyer.setPrice(ticketTravelBuyerDetails.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());

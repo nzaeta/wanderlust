@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entity;
+package com.nicoz.NZWanderlust.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,9 +12,9 @@ public class Post {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer postID;
+	private Long postID;
 	
-	private Integer sellerID;	
+	private Long sellerID;	
 	private String title;	
 	private String description;
 	private String startDate;

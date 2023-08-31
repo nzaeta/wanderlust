@@ -1,7 +1,9 @@
-package com.coderlancce.Repository;
+package com.nicoz.NZWanderlust.Repositories;
 
-import com.coderlancce.Entity.TicketTravelBuyer;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
 
 public interface TicketTravelBuyerRepository extends JpaRepository<TicketTravelBuyer, Long> {
 }
