@@ -1,8 +1,8 @@
-package com.woderlust.controller;
+package Controllers;
 
-import com.woderlust.NewUserRequest;
-import com.woderlust.entities.User;
-import com.woderlust.services.UserService;
+import com.nicoz.NZWanderlust.NewUserRequest;
+import com.nicoz.NZWanderlust.Entities.User;
+import com.nicoz.NZWanderlust.Services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

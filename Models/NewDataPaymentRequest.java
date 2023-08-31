@@ -1,4 +1,4 @@
-package com.woderlust.Models;
+package Models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewDataPaymentRequest {
+    private Long userId;
     private String name;
     private Long number;
     private Integer expDate;

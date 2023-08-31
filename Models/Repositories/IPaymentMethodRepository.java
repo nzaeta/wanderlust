@@ -1,6 +1,6 @@
-package com.woderlust.repository;
+package Models.Repositories;
 
-import com.woderlust.entities.PaymentMethod;
+import com.nicoz.NZWanderlust.Entities.PaymentMethod;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

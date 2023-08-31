@@ -1,8 +1,9 @@
-package com.woderlust.controller;
+package Controllers;
 
-import com.woderlust.NewPaymentMethodRequest;
-import com.woderlust.entities.PaymentMethod;
-import com.woderlust.services.PaymentMethodService;
+import com.nicoz.NZWanderlust.NewDataPaymentRequest;
+import com.nicoz.NZWanderlust.NewPaymentMethodRequest;
+import com.nicoz.NZWanderlust.Entities.PaymentMethod;
+import com.nicoz.NZWanderlust.Services.PaymentMethodService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +18,13 @@ public class PaymentMethodController {
     }
 
     @GetMapping("/paymentMethod/")
-    public List<PaymentMethod> getAllPaymentMethod() { return paymentMethodService.getDataPayments();}
+    public List<PaymentMethod> getAllPaymentMethod() { return paymentMethodService.getPaymentMethods();}
 
     @PostMapping("/paymentMethod/")
-    public void addPaymentMethod(@RequestBody NewPaymentMethodRequest request) { paymentMethodService.addPaymentMethod(request); }
+    public void addPaymentMethod(@RequestBody NewDataPaymentRequest request) { paymentMethodService.addPaymentMethod(request); }
 
-    @PutMapping("/paymentMethod/{id}")
-    public ResponseEntity<PaymentMethod> updatePaymentMethod(@RequestBody PaymentMethod paymentMethod, @PathVariable Long id) { return paymentMethodService.updatePaymentMethod(id, paymentMethod);}
+//    @PutMapping("/paymentMethod/{id}")
+//    public ResponseEntity<PaymentMethod> updatePaymentMethod(@RequestBody PaymentMethod paymentMethod, @PathVariable Long id) { return paymentMethodService.updatePaymentMethod(id, paymentMethod);}
 
     @DeleteMapping("/paymentMethod/{id}")
     public void deletePaymentMethod(@PathVariable Long id) { paymentMethodService.delete(id);}

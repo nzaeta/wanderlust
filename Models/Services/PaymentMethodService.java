@@ -1,9 +1,12 @@
-package com.woderlust.services;
+package Models.Services;
 
-import com.woderlust.NewPaymentMethodRequest;
-import com.woderlust.entities.PaymentMethod;
-import com.woderlust.repository.IPaymentMethodRepository;
+import com.nicoz.NZWanderlust.NewDataPaymentRequest;
+import com.nicoz.NZWanderlust.NewPaymentMethodRequest;
+import com.nicoz.NZWanderlust.Entities.DataPayment;
+import com.nicoz.NZWanderlust.Entities.PaymentMethod;
+import com.nicoz.NZWanderlust.Repositories.IPaymentMethodRepository;
 import org.apache.coyote.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -18,27 +21,45 @@ public class PaymentMethodService {
     public PaymentMethodService(IPaymentMethodRepository paymentMethodRepository) {
         this.paymentMethodRepository = paymentMethodRepository;
     }
+    
+	@Autowired
+	private DataPaymentService dataPaymentService;
+	
+	@Autowired
+	private UserService userService;
+    
 
-    public List<PaymentMethod> getDataPayments(){ return paymentMethodRepository.findAll(); }
+    public List<PaymentMethod> getPaymentMethods(){ return paymentMethodRepository.findAll(); }
 
     public PaymentMethod get(Long id){ return paymentMethodRepository.findById(id).get(); }
 
-    public void addPaymentMethod(NewPaymentMethodRequest paymentMethodRequest){
+    public void addPaymentMethod(NewDataPaymentRequest dataPaymentRequest){
         PaymentMethod paymentMethod = new PaymentMethod();
-        paymentMethod.setDataPaymentId(paymentMethodRequest.getDataPaymentId());
+        paymentMethod.setUser(userService.get(dataPaymentRequest.getUserId()));
+        
+        DataPayment dataPayment = dataPaymentService.addDataPayment(dataPaymentRequest);
+        
+        paymentMethod.setDataPayment(dataPayment);
         paymentMethodRepository.save(paymentMethod);
     }
 
-    public ResponseEntity<PaymentMethod> updatePaymentMethod(Long id, PaymentMethod paymentMethodDetails){
-        Optional<PaymentMethod> optionalPaymentMethod = paymentMethodRepository.findById(id);
-        if(!optionalPaymentMethod.isPresent()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        PaymentMethod paymentMethod = optionalPaymentMethod.get();
-        paymentMethod.setDataPaymentId(paymentMethodDetails.getDataPaymentId());
-        PaymentMethod updatePaymentmethod = paymentMethodRepository.save(paymentMethod);
-        return new ResponseEntity<>(updatePaymentmethod, HttpStatus.OK);
-    }
+//    public ResponseEntity<PaymentMethod> updatePaymentMethod(Long id, PaymentMethod paymentMethodDetails){
+//        Optional<PaymentMethod> optionalPaymentMethod = paymentMethodRepository.findById(id);
+//        if(!optionalPaymentMethod.isPresent()){
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//        PaymentMethod paymentMethod = optionalPaymentMethod.get();
+//        paymentMethod.setDataPaymentId(paymentMethodDetails.getDataPaymentId());
+//        PaymentMethod updatePaymentmethod = paymentMethodRepository.save(paymentMethod);
+//        return new ResponseEntity<>(updatePaymentmethod, HttpStatus.OK);
+//    }
 
-    public void delete(Long id){ paymentMethodRepository.deleteById(id);}
+    public void delete(Long id){ 
+    	PaymentMethod paymentMethod = paymentMethodRepository.findById(id).get();
+
+    	
+    	paymentMethodRepository.deleteById(id);
+		dataPaymentService.delete(paymentMethod.getDataPayment().getId());
+    }
+    
 }

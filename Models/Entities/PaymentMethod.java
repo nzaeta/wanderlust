@@ -1,9 +1,11 @@
-package com.woderlust.entities;
+package Models.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,11 @@ import lombok.NoArgsConstructor;
 public class PaymentMethod {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
-    private Long dataPaymentId;
+    private Long id;
+ 
+    @ManyToOne
+    private User user;
+    
+    @OneToOne
+    private DataPayment dataPayment;
 }

@@ -1,4 +1,4 @@
-package com.woderlust.entities;
+package Models.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

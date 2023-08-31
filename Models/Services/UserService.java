@@ -1,8 +1,8 @@
-package com.woderlust.services;
+package Models.Services;
 
-import com.woderlust.NewUserRequest;
-import com.woderlust.entities.User;
-import com.woderlust.repository.IUserRepository;
+import com.nicoz.NZWanderlust.NewUserRequest;
+import com.nicoz.NZWanderlust.Entities.User;
+import com.nicoz.NZWanderlust.Repositories.IUserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

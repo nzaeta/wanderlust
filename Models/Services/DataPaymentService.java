@@ -1,9 +1,8 @@
-package com.woderlust.services;
+package Models.Services;
 
-import com.woderlust.NewDataPaymentRequest;
-import com.woderlust.entities.DataPayment;
-import com.woderlust.repository.IDataPaymentRepository;
-import lombok.Data;
+import com.nicoz.NZWanderlust.NewDataPaymentRequest;
+import com.nicoz.NZWanderlust.Entities.DataPayment;
+import com.nicoz.NZWanderlust.Repositories.IDataPaymentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -23,14 +22,14 @@ public class DataPaymentService {
 
     public DataPayment get(Long id){ return dataPaymentRepository.findById(id).get(); }
 
-    public void addDataPayment(NewDataPaymentRequest dataPaymentRequest){
+    public DataPayment addDataPayment(NewDataPaymentRequest dataPaymentRequest){
         DataPayment dataPayment = new DataPayment();
         dataPayment.setName(dataPaymentRequest.getName());
         dataPayment.setNumber(dataPaymentRequest.getNumber());
         dataPayment.setExpDate(dataPaymentRequest.getExpDate());
         dataPayment.setSecurityCode(dataPaymentRequest.getSecurityCode());
         dataPayment.setUserFullName(dataPaymentRequest.getUserFullName());
-        dataPaymentRepository.save(dataPayment);
+        return dataPaymentRepository.save(dataPayment);
     }
 
     public ResponseEntity<DataPayment> updateDataPayment(Long id, DataPayment dataPaymentDetails){
