@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entity;
+package com.nicoz.NZWanderlust.Entities;
 
 import jakarta.persistence.*;
 

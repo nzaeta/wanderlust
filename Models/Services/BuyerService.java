@@ -1,11 +1,11 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.nicoz.NZWanderlust.Entity.Buyer;
-import com.nicoz.NZWanderlust.Repository.BuyerRepository;
+import com.nicoz.NZWanderlust.Entities.Buyer;
+import com.nicoz.NZWanderlust.Repositories.BuyerRepository;
 
 @Service
 public class BuyerService {

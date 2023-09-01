@@ -1,4 +1,4 @@
-package Models.Services;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.NewUserRequest;
 import com.nicoz.NZWanderlust.Entities.User;
@@ -34,8 +34,9 @@ public class UserService{
         user.setLastname(newUserRequest.getLastname());
         user.setEmail(newUserRequest.getEmail());
         user.setReputationScoreId(newUserRequest.getReputationScoreId());
-        user.setUserTypeId(newUserRequest.getUserTypeId());
-        user.setUserType(newUserRequest.getUserType());
+        user.setAddress(newUserRequest.getAddress());
+        user.setPhoneNumber(newUserRequest.getPhoneNumber());
+        user.setUserLevelID(newUserRequest.getUserLevelID());        
         userRepository.save(user);
     }
     public ResponseEntity<User> updateUser(Long id, User userDetails){
@@ -50,8 +51,9 @@ public class UserService{
         user.setLastname(userDetails.getLastname());
         user.setEmail(userDetails.getEmail());
         user.setReputationScoreId(userDetails.getReputationScoreId());
-        user.setUserTypeId(userDetails.getUserTypeId());
-        user.setUserType(userDetails.getUserType());
+        user.setAddress(newUserRequest.getAddress());
+        user.setPhoneNumber(newUserRequest.getPhoneNumber());
+        user.setUserLevelID(newUserRequest.getUserLevelID());    
         User updateUser = userRepository.save(user);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }

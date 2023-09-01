@@ -1,4 +1,4 @@
-package Models.Entities;
+package com.nicoz.NZWanderlust.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,6 +20,10 @@ public class User {
     private String lastname;
     private String email;
     private Long reputationScoreId;
-    private Long userTypeId;
-    private String userType;
+    
+    
+	private String address;	
+	private String phoneNumber;	    
+	private Integer userLevelID;   
+
 }

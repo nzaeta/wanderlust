@@ -1,4 +1,4 @@
-package Controllers;
+package com.nicoz.NZWanderlust.Controllers;
 
 import com.nicoz.NZWanderlust.NewDataPaymentRequest;
 import com.nicoz.NZWanderlust.Entities.DataPayment;

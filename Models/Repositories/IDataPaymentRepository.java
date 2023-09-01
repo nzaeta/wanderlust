@@ -1,4 +1,4 @@
-package Models.Repositories;
+package com.nicoz.NZWanderlust.Repositories;
 
 import com.nicoz.NZWanderlust.Entities.DataPayment;
 import org.springframework.data.jpa.repository.JpaRepository;

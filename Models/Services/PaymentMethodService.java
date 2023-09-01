@@ -1,4 +1,4 @@
-package Models.Services;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.NewDataPaymentRequest;
 import com.nicoz.NZWanderlust.NewPaymentMethodRequest;

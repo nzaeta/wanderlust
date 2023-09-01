@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Controller;
+package com.nicoz.NZWanderlust.Controllers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nicoz.NZWanderlust.Entity.Buyer;
-import com.nicoz.NZWanderlust.Service.BuyerService;
+import com.nicoz.NZWanderlust.Entities.Buyer;
+import com.nicoz.NZWanderlust.Services.BuyerService;
 
 import jakarta.validation.Valid;
 

@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.Repository;
+package com.nicoz.NZWanderlust.Repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.nicoz.NZWanderlust.Entity.UserLevel;
+import com.nicoz.NZWanderlust.Entities.UserLevel;
 
 
 public interface UserLevelRepository extends JpaRepository<UserLevel, Integer>{

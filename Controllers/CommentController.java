@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
-import com.nicoz.NZWanderlust.Entity.Comment;
+import com.nicoz.NZWanderlust.Entities.Comment;
 import com.nicoz.NZWanderlust.NewCommentRequest;
-import com.nicoz.NZWanderlust.Service.CommentService;
+import com.nicoz.NZWanderlust.Services.CommentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

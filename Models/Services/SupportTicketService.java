@@ -1,9 +1,9 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Entity.Seller;
-import com.nicoz.NZWanderlust.Entity.SupportTicket;
+import com.nicoz.NZWanderlust.Entities.Seller;
+import com.nicoz.NZWanderlust.Entities.SupportTicket;
 import com.nicoz.NZWanderlust.NewSupportTicketRequest;
-import com.nicoz.NZWanderlust.Repository.SupportTicketRepository;
+import com.nicoz.NZWanderlust.Repositories.SupportTicketRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

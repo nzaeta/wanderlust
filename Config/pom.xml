@@ -15,7 +15,7 @@
 	<name>NZWanderlust</name>
 	<description>Mi proyecto local de Wanderlust NZ</description>
 	<properties>
-		<java.version>8</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
 import com.nicoz.NZWanderlust.NewSellerRequest;
-import com.nicoz.NZWanderlust.Service.SellerService;
-import com.nicoz.NZWanderlust.Entity.Seller;
+import com.nicoz.NZWanderlust.Services.SellerService;
+import com.nicoz.NZWanderlust.Entities.Seller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

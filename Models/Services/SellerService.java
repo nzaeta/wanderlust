@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.NewSellerRequest;
-import com.nicoz.NZWanderlust.Entity.Seller;
-import com.nicoz.NZWanderlust.Repository.SellerRepository;
+import com.nicoz.NZWanderlust.Entities.Seller;
+import com.nicoz.NZWanderlust.Repositories.SellerRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

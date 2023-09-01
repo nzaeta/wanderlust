@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Entity.Comment;
+import com.nicoz.NZWanderlust.Entities.Comment;
 import com.nicoz.NZWanderlust.NewCommentRequest;
-import com.nicoz.NZWanderlust.Repository.CommentRepository;
+import com.nicoz.NZWanderlust.Repositories.CommentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

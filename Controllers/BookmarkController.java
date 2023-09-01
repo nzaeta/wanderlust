@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
-import com.nicoz.NZWanderlust.Entity.Bookmark;
+import com.nicoz.NZWanderlust.Entities.Bookmark;
 import com.nicoz.NZWanderlust.NewBookmarkRequest;
-import com.nicoz.NZWanderlust.Service.BookmarkService;
+import com.nicoz.NZWanderlust.Services.BookmarkService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,4 +1,4 @@
-package Controllers;
+package com.nicoz.NZWanderlust.Controllers;
 
 import com.nicoz.NZWanderlust.NewUserRequest;
 import com.nicoz.NZWanderlust.Entities.User;

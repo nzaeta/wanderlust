@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Controller;
+package com.nicoz.NZWanderlust.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nicoz.NZWanderlust.Entity.Buyer;
-import com.nicoz.NZWanderlust.Entity.UserLevel;
-import com.nicoz.NZWanderlust.Service.UserLevelService;
-import com.nicoz.NZWanderlust.Service.BuyerService;
+import com.nicoz.NZWanderlust.Entities.Buyer;
+import com.nicoz.NZWanderlust.Entities.UserLevel;
+import com.nicoz.NZWanderlust.Services.UserLevelService;
+import com.nicoz.NZWanderlust.Services.BuyerService;
 
 @RestController
 @RequestMapping("/")

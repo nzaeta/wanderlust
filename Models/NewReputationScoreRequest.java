@@ -1,4 +1,4 @@
-package com.woderlust.Models;
+package com.nicoz.NZWanderlust;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

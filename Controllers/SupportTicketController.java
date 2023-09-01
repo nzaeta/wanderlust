@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
-import com.nicoz.NZWanderlust.Entity.SupportTicket;
+import com.nicoz.NZWanderlust.Entities.SupportTicket;
 import com.nicoz.NZWanderlust.NewSupportTicketRequest;
-import com.nicoz.NZWanderlust.Service.SupportTicketService;
+import com.nicoz.NZWanderlust.Services.SupportTicketService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

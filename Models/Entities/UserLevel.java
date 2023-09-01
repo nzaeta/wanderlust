@@ -1,9 +1,10 @@
-package com.nicoz.NZWanderlust.Entity;
+package com.nicoz.NZWanderlust.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Entity
@@ -16,7 +17,9 @@ public class UserLevel {
 	private String levelName;	
 	private Integer numberOfTickets;
 	private Double profit;
-	private Integer userID;
+	
+    @OneToOne
+	private User user;
 
 	public UserLevel() {
 	}

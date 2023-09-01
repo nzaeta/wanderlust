@@ -1,4 +1,4 @@
-package Models;
+package com.nicoz.NZWanderlust;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,6 +15,7 @@ public class NewUserRequest {
     private String lastname;
     private String email;
     private Long reputationScoreId;
-    private Long userTypeId;
-    private String userType;
+	private String address;	
+	private String phoneNumber;	    
+	private Integer userLevelID;  
 }

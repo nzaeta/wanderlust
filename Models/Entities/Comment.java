@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entity;
+package com.nicoz.NZWanderlust.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,8 +10,7 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
-    private Long buyerId;
-    private Long sellerId;
+    private Long userId;
     private String title;
     private String details;
     private String score;
@@ -24,20 +23,12 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public Long getBuyerId() {
-        return buyerId;
+    public Long userId() {
+        return userId;
     }
 
-    public void setBuyerId(Long buyerId) {
-        this.buyerId = buyerId;
-    }
-
-    public Long getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(Long sellerId) {
-        this.sellerId = sellerId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {

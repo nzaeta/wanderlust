@@ -1,8 +1,8 @@
-package com.nicoz.NZWanderlust.Service;
+package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Entity.Bookmark;
+import com.nicoz.NZWanderlust.Entities.Bookmark;
 import com.nicoz.NZWanderlust.NewBookmarkRequest;
-import com.nicoz.NZWanderlust.Repository.BookmarkRepository;
+import com.nicoz.NZWanderlust.Repositories.BookmarkRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
