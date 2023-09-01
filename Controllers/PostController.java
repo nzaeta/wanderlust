@@ -1,4 +1,6 @@
-package com.nicoz.NZWanderlust.Controller;
+package com.nicoz.NZWanderlust.Controllers;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nicoz.NZWanderlust.Entity.Buyer;
-import com.nicoz.NZWanderlust.Entity.Post;
-import com.nicoz.NZWanderlust.Service.BuyerService;
-import com.nicoz.NZWanderlust.Service.PostService;
+import com.nicoz.NZWanderlust.Entities.Post;
+import com.nicoz.NZWanderlust.Services.PostService;
 
 @RestController
 @RequestMapping("/")
@@ -25,22 +25,22 @@ public class PostController {
     @Autowired
     private PostService postService;
     
-    @PostMapping("/post/nuevoPost")
-    public ResponseEntity<?> nuevoPost(@RequestBody Post post) {
+    @PostMapping("/post")
+    public ResponseEntity<?> addPost(@RequestBody Post post) {
     	Post newPost = postService.newPost(post);
         return new ResponseEntity<>(newPost, HttpStatus.OK);
     }
 	
     
-    @DeleteMapping("/post/bajaPost/{id}")
-    public ResponseEntity<?> bajaPost(@PathVariable Integer id) {
+    @DeleteMapping("/post/{id}")
+    public ResponseEntity<?> deletePost(@PathVariable Integer id) {
     	postService.deletePost(id);      	
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
 	
-    @GetMapping("/post/verPost/{id}")
-    public ResponseEntity<Post> verPost(@PathVariable Integer id) {
+    @GetMapping("/post/{id}")
+    public ResponseEntity<Post> getPost(@PathVariable Integer id) {
         try {
         	Post post = postService.searchPost(id);      	
             return new ResponseEntity<>(post, HttpStatus.OK);
@@ -49,11 +49,14 @@ public class PostController {
         }
     }
     
-
-   	
-    @PutMapping("/post/modificarPost")
-    public ResponseEntity<?> modificarPost(@RequestBody Post post) {
-    	Post updatedPost = postService.updatePost(post);
+    @GetMapping("/post")
+    public List<Post> getPosts(){
+        return postService.getPosts();
+    }
+      	
+    @PutMapping("/post/{id}")
+    public ResponseEntity<?> updatePost(@RequestBody Post post, @PathVariable Integer id) {
+    	Post updatedPost = postService.updatePost(id, post);
         return new ResponseEntity<>(updatedPost, HttpStatus.OK);
     }	
 	
