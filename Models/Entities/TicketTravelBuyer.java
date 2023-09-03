@@ -1,25 +1,20 @@
-package com.nicoz.NZWanderlust.Entities;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+package com.nicoz.NZWanderlust.Models.entities;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
 
-@Entity
 @Data
+@Entity
 public class TicketTravelBuyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ticketTravelBuyerId;
-    
-    @ManyToOne
-    private Post post;
-    @ManyToOne   
+    private Long postId;
+    @ManyToOne()
+    @JoinColumn(name = "userId")
+    @JsonBackReference
     private User user;
     private String price;
     private LocalDate startDate;

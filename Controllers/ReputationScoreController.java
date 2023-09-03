@@ -1,8 +1,10 @@
-package com.nicoz.NZWanderlust.Controllers;
+package com.nicoz.NZWanderlust.controller;
 
+import com.nicoz.NZWanderlust.Models.entities.UserLevel;
 import com.nicoz.NZWanderlust.NewReputationScoreRequest;
-import com.nicoz.NZWanderlust.Entities.ReputationScore;
-import com.nicoz.NZWanderlust.Services.ReputationScoreService;
+import com.nicoz.NZWanderlust.Models.entities.ReputationScore;
+import com.nicoz.NZWanderlust.Models.services.ReputationScoreService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +13,6 @@ import java.util.List;
 @RestController
 public class ReputationScoreController {
     private final ReputationScoreService reputationScoreService;
-
     public ReputationScoreController(ReputationScoreService reputationScoreService) {
         this.reputationScoreService = reputationScoreService;
     }
@@ -21,16 +22,24 @@ public class ReputationScoreController {
         return reputationScoreService.getReputationScore();
     }
 
+    @GetMapping("/reputationScore/{id}")
+    public ResponseEntity<?> getReputationScore(@PathVariable Long id) {
+        try {
+            ReputationScore reputationScore = reputationScoreService.getReputationScoreById(id);
+            return new ResponseEntity<>(reputationScore, HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/reputationScore/")
     public void addReputationScore(@RequestBody NewReputationScoreRequest request) {
         reputationScoreService.addReputationScore(request);
     }
-
     @PutMapping("/reputationScore/{id}")
-    public ResponseEntity<ReputationScore> updateReputationScore(@RequestBody ReputationScore reputationScore, @PathVariable Long id) {
+    public ResponseEntity<?> updateReputationScore(@RequestBody ReputationScore reputationScore, @PathVariable Long id) {
         return reputationScoreService.updateReputationScore(id, reputationScore);
     }
-
     @DeleteMapping("/reputationScore/{id}")
     public void deleteReputationScore(@PathVariable Long id) {
         reputationScoreService.delete(id);

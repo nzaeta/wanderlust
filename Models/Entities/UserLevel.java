@@ -1,29 +1,20 @@
-package com.nicoz.NZWanderlust.Entities;
+package com.nicoz.NZWanderlust.Models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
 public class UserLevel {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer userLevelID;
+	private Long userLevelId;
 	private String levelName;	
 	private Integer numberOfTickets;
 	private Double profit;
-	
-    @OneToOne
+	@OneToOne(mappedBy = "userLevel", cascade = CascadeType.ALL)
+	@JsonBackReference
 	private User user;
 
-	public UserLevel() {
-	}
-	
-	
-	
 }

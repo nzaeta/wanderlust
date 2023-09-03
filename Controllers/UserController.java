@@ -1,8 +1,9 @@
-package com.nicoz.NZWanderlust.Controllers;
+package com.nicoz.NZWanderlust.controller;
 
 import com.nicoz.NZWanderlust.NewUserRequest;
-import com.nicoz.NZWanderlust.Entities.User;
-import com.nicoz.NZWanderlust.Services.UserService;
+import com.nicoz.NZWanderlust.Models.entities.User;
+import com.nicoz.NZWanderlust.Models.services.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,15 +18,33 @@ public class UserController {
     }
 
     @GetMapping("/users/")
-    public List<User> getAllUsers() { return userService.getUsers();}
-
+    public ResponseEntity<List<User>> getAllUsers() {
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
+    }
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable Long id){
+        try {
+            User user = userService.getUser(id);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
     @PostMapping("/users/")
-    public void addUser(@RequestBody NewUserRequest request) { userService.addUser(request); }
-
+    public ResponseEntity<User> updateUser(@RequestBody NewUserRequest userRequest) {
+        User user = userService.addUser(userRequest);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
     @PutMapping("/users/{id}")
-    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable Long id) { return userService.updateUser(id, user);}
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userRequest ){
+        return userService.updateUser(id, userRequest);
+        }
 
     @DeleteMapping("/users/{id}")
-    public void deleteUser(@PathVariable Long id) { userService.delete(id);}
+    public ResponseEntity<?> deleteUser(@PathVariable Long id) {
+        userService.delete(id);
+        return ResponseEntity.ok().build();
+
+    }
 
 }

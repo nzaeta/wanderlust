@@ -1,7 +1,7 @@
-package com.nicoz.NZWanderlust.Controllers;
+package com.nicoz.NZWanderlust.controller;
 
-import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
-import com.nicoz.NZWanderlust.Services.TicketTravelBuyerService;
+import com.nicoz.NZWanderlust.Models.entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Models.services.TicketTravelBuyerService;
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +16,13 @@ public class TicketTravelBuyerController {
         this.ticketTravelBuyerService = ticketTravelBuyerService;
     }
 
-    @GetMapping("/ticketTravelBuyer")
+    /*@GetMapping("/ticketTravelBuyer")
     public List<TicketTravelBuyer> getTicketTravelBuyers(){
         return ticketTravelBuyerService.getTicketTravelBuyers();
-    }
+    }*/
+    @GetMapping("/ticketTravelBuyer")
+    public List<TicketTravelBuyer> getTicketTravelBuyers(){
+        return ticketTravelBuyerService.getTicketTravelBuyers();}
 
     @PostMapping("/ticketTravelBuyer")
     public void addTicketTravelBuyer(@RequestBody NewTicketTravelBuyerRequest request){
@@ -27,8 +30,7 @@ public class TicketTravelBuyerController {
     }
 
     @PutMapping("/ticketTravelBuyer/{ticketTravelBuyerId}")
-    public ResponseEntity<TicketTravelBuyer> updateTicketTravelBuyer(@PathVariable("ticketTravelBuyerId") Long id,
-                                               @RequestBody TicketTravelBuyer ticketTravelBuyerDetails){
+    public ResponseEntity<TicketTravelBuyer> updateTicketTravelBuyer(@PathVariable("ticketTravelBuyerId") Long id, @RequestBody TicketTravelBuyer ticketTravelBuyerDetails){
         return ticketTravelBuyerService.updateTicketTravelBuyer(id, ticketTravelBuyerDetails);
     }
 

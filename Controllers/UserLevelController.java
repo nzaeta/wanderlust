@@ -1,6 +1,8 @@
-package com.nicoz.NZWanderlust.Controllers;
+package com.nicoz.NZWanderlust.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.nicoz.NZWanderlust.Models.entities.UserLevel;
+import com.nicoz.NZWanderlust.Models.services.UserLevelService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,49 +14,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nicoz.NZWanderlust.Entities.Buyer;
-import com.nicoz.NZWanderlust.Entities.UserLevel;
-import com.nicoz.NZWanderlust.Services.UserLevelService;
-import com.nicoz.NZWanderlust.Services.BuyerService;
 
 @RestController
 @RequestMapping("/")
 public class UserLevelController {
 
-	
-    @Autowired
-    private UserLevelService userLevelService;
-    
-    @PostMapping("/userLevel/nuevoUserLevel/{idUser}")
-    public ResponseEntity<?> nuevoUserLevel(@PathVariable Integer idUser) {
-    	UserLevel newUserLevel = userLevelService.newUserLevel(idUser);
-        return new ResponseEntity<>(newUserLevel, HttpStatus.OK);
+    private final UserLevelService userLevelService;
+
+    public UserLevelController(UserLevelService userLevelService) {
+        this.userLevelService = userLevelService;
     }
-	
-    
-    @DeleteMapping("/userLevel/bajaUserLevel/{id}")
-    public ResponseEntity<?> bajaUserLevel(@PathVariable Integer id) {
-    	userLevelService.deleteUserLevel(id);      	
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-    
-	
-    @GetMapping("/userLevel/verUserLevel/{id}")
-    public ResponseEntity<UserLevel> verUserLevel(@PathVariable Integer id) {
+
+    @GetMapping("/userLevel/{id}")
+    public ResponseEntity<UserLevel> getUserLevelById(@PathVariable Long id) {
         try {
-        	UserLevel userLevel = userLevelService.searchUserLevel(id);      	
+            UserLevel userLevel = userLevelService.searchUserLevel(id);
             return new ResponseEntity<>(userLevel, HttpStatus.OK);
         } catch (Exception e) {
-        	return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
     }
-    
-
-   	
-    @PutMapping("/userLevel/modificarUserLevel")
-    public ResponseEntity<?> modificarUserLevel(@RequestBody UserLevel userLevel) {
-    	UserLevel updatedUserLevel = userLevelService.updateUserLevel(userLevel);
-        return new ResponseEntity<>(updatedUserLevel, HttpStatus.OK);
+    //*
+    @PostMapping("/userLevel/")
+    public void newUserLevel(@RequestBody UserLevel userLevel) {
+    	UserLevel newUserLevel = userLevelService.newUserLevel(userLevel);
+    }
+	
+    //*
+    @DeleteMapping("/userLevel/{id}")
+    public void deleteUserLevel(@PathVariable Long id) {
+    	userLevelService.deleteUserLevel(id);
+    }
+    //*
+    @PutMapping("/userLevel/{id}")
+    public ResponseEntity<?> updateUserLevel(@PathVariable Long id, @RequestBody UserLevel userLevel) {
+    	return userLevelService.updateUserLevel(id, userLevel);
     }
 	   
     

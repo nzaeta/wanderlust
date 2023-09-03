@@ -1,22 +1,25 @@
-package com.nicoz.NZWanderlust.Entities;
+package com.nicoz.NZWanderlust.Models.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Data
+/*@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "reputationScoreId")*/
 public class ReputationScore {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reputationScoreId;
-
-    private Long userIdReputation;
     private Long score;
+    @OneToOne(mappedBy = "reputationScore", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private User user;
+
+
+
 }

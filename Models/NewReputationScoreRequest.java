@@ -1,5 +1,6 @@
 package com.nicoz.NZWanderlust;
 
+import com.nicoz.NZWanderlust.Models.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewReputationScoreRequest {
-    private Long userIdReputation;
+    private User user;
     private Long score;
 }

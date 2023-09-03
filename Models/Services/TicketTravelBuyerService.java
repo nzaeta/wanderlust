@@ -1,11 +1,8 @@
-package com.nicoz.NZWanderlust.Services;
+package com.nicoz.NZWanderlust.Models.services;
 
-import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Models.entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Models.repository.TicketTravelBuyerRepository;
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
-import com.nicoz.NZWanderlust.Repositories.PostRepository;
-import com.nicoz.NZWanderlust.Repositories.TicketTravelBuyerRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,44 +14,64 @@ import java.util.Optional;
 public class TicketTravelBuyerService {
     private final TicketTravelBuyerRepository ticketTravelBuyerRepository;
 
-    public TicketTravelBuyerService(TicketTravelBuyerRepository ticketTravelBuyerRepository){
+    public TicketTravelBuyerService(TicketTravelBuyerRepository ticketTravelBuyerRepository) {
         this.ticketTravelBuyerRepository = ticketTravelBuyerRepository;
     }
 
-    public List<TicketTravelBuyer> getTicketTravelBuyers(){
+    public List<TicketTravelBuyer> getTicketTravelBuyers() {
         return ticketTravelBuyerRepository.findAll();
     }
-    
-	@Autowired
-	private PostService postService;
 
+    public TicketTravelBuyer getTicket(Long id) {
+        return ticketTravelBuyerRepository.findById(id).get();
+    }
 
-    public void addTicketTravelBuyer(NewTicketTravelBuyerRequest ticketTravelBuyerRequest){
+    //only when post entity is generated
+    public TicketTravelBuyer addTicketTravelBuyer(NewTicketTravelBuyerRequest ticketTravelBuyerRequest) {
         TicketTravelBuyer ticketTravelBuyer = new TicketTravelBuyer();
-        ticketTravelBuyer.setPost(postService.searchPost(ticketTravelBuyerRequest.getPostId().intValue()));
-        ticketTravelBuyer.setBuyerId(ticketTravelBuyerRequest.getBuyerId());
+        ticketTravelBuyer.setPostId(ticketTravelBuyerRequest.getPostId());
+        ticketTravelBuyer.setUser(ticketTravelBuyerRequest.getUser());
         ticketTravelBuyer.setPrice(ticketTravelBuyerRequest.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerRequest.getStartDate());
         ticketTravelBuyer.setEndDate(ticketTravelBuyerRequest.getEndDate());
         ticketTravelBuyerRepository.save(ticketTravelBuyer);
+        return ticketTravelBuyer;
     }
 
-    public ResponseEntity<TicketTravelBuyer> updateTicketTravelBuyer(Long id, TicketTravelBuyer ticketTravelBuyerDetails){
+    public ResponseEntity<TicketTravelBuyer> updateTicketTravelBuyer(Long id, TicketTravelBuyer ticketTravelBuyerDetails) {
         Optional<TicketTravelBuyer> optionalTicketTravelBuyer = ticketTravelBuyerRepository.findById(id);
         if (!optionalTicketTravelBuyer.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
-//        ticketTravelBuyer.setPost(ticketTravelBuyerDetails.getPost());
-        ticketTravelBuyer.setBuyerId(ticketTravelBuyerDetails.getBuyerId());
+        ticketTravelBuyer.setPostId(ticketTravelBuyerDetails.getPostId()); //?
+        //ticketTravelBuyer.setUser(ticketTravelBuyerDetails.getUser()); //?
         ticketTravelBuyer.setPrice(ticketTravelBuyerDetails.getPrice());
-        ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());
-        ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());
+        ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());  //?
+        ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());         //?
         TicketTravelBuyer updatedTicketTravelBuyer = ticketTravelBuyerRepository.save(ticketTravelBuyer);
         return new ResponseEntity<>(updatedTicketTravelBuyer, HttpStatus.OK);
     }
 
-    public void deleteTicketTravelBuyer(Long id){
+    public void deleteTicketTravelBuyer(Long id) {
         ticketTravelBuyerRepository.deleteById(id);
+    }
+
+    /* public List<TicketTravelBuyer> getTicketTravelBuyersByUser(Long id){
+         List<TicketTravelBuyer> tickets = ticketTravelBuyerRepository.findAll();
+         System.out.println(tickets);
+         tickets.stream().filter((e) -> e.getBuyer().getBuyerId() == (Long) id).collect(Collectors.toList());
+         return tickets;
+     }*/
+    public TicketTravelBuyer updateOnlyTicketTravelBuyer(Long id, TicketTravelBuyer ticketTravelBuyerDetails) {
+        Optional<TicketTravelBuyer> optionalTicketTravelBuyer = ticketTravelBuyerRepository.findById(id);
+        if (!optionalTicketTravelBuyer.isPresent()) {
+            return null;
+        }
+        TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
+        ticketTravelBuyer.setUser(ticketTravelBuyerDetails.getUser()); //?
+        TicketTravelBuyer updatedTicketTravelBuyer = ticketTravelBuyerRepository.save(ticketTravelBuyer);
+        return updatedTicketTravelBuyer;
     }
 }
