@@ -1,6 +1,6 @@
-package com.nicoz.NZWanderlust.Models.repository;
+package Models.Repositories;
 
-import com.nicoz.NZWanderlust.Models.entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import java.util.List;

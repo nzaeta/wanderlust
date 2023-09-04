@@ -1,8 +1,10 @@
-package com.nicoz.NZWanderlust.Models.services;
+package Models.Services;
 
-import com.nicoz.NZWanderlust.Models.entities.TicketTravelBuyer;
-import com.nicoz.NZWanderlust.Models.repository.TicketTravelBuyerRepository;
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Repositories.TicketTravelBuyerRepository;
+
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

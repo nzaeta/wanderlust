@@ -19,7 +19,6 @@ public class PostService {
 
 		Post newPost = new Post();
 		
-		newPost.setSellerID(post.getSellerID());
 		newPost.setTitle(post.getTitle());		
 		newPost.setDescription(post.getDescription());	
 		newPost.setStartDate(post.getStartDate());
@@ -56,7 +55,6 @@ public class PostService {
 	@Transactional
 	public Post updatePost(Integer id, Post post)  {
 		Post postToUpdate = searchPost(id);
-		postToUpdate.setSellerID(post.getSellerID());
 		postToUpdate.setTitle(post.getTitle());		
 		postToUpdate.setDescription(post.getDescription());	
 		postToUpdate.setStartDate(post.getStartDate());

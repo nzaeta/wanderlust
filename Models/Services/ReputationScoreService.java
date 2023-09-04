@@ -1,8 +1,10 @@
-package com.nicoz.NZWanderlust.Models.services;
+package Models.Services;
 
-import com.nicoz.NZWanderlust.Models.entities.ReputationScore;
-import com.nicoz.NZWanderlust.Models.repository.ReputationScoreRepository;
+import com.nicoz.NZWanderlust.Entities.ReputationScore;
+import com.nicoz.NZWanderlust.Repositories.ReputationScoreRepository;
+
 import com.nicoz.NZWanderlust.NewReputationScoreRequest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

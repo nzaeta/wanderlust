@@ -12,9 +12,9 @@ import java.util.Optional;
 
 @Service
 public class DataPaymentService {
-    private final IDataPaymentRepository dataPaymentRepository;
+    private final DataPaymentRepository dataPaymentRepository;
 
-    public DataPaymentService(IDataPaymentRepository dataPaymentRepository) {
+    public DataPaymentService(DataPaymentRepository dataPaymentRepository) {
         this.dataPaymentRepository = dataPaymentRepository;
     }
 
@@ -48,5 +48,5 @@ public class DataPaymentService {
     }
 
 
-    public void delete(Long id){ dataPaymentRepository.deleteById(id);}
+    public void delete(Long id){dataPaymentRepository.deleteById(id);}
 }

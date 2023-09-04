@@ -1,34 +1,24 @@
-package com.nicoz.NZWanderlust;
+package Models;
 
 public class NewCommentRequest {
-    private Long buyerId;
-    private Long sellerId;
+    private Long userId;
     private String title;
     private String details;
     private String score;
 
-    public NewCommentRequest(Long buyerId, Long sellerId, String title, String details, String score) {
-        this.buyerId = buyerId;
-        this.sellerId = sellerId;
+    public NewCommentRequest(Long userId, String title, String details, String score) {
+        this.userId = userId;
         this.title = title;
         this.details = details;
         this.score = score;
     }
 
-    public Long getBuyerId() {
-        return buyerId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setBuyerId(Long buyerId) {
-        this.buyerId = buyerId;
-    }
-
-    public Long getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(Long sellerId) {
-        this.sellerId = sellerId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getTitle() {

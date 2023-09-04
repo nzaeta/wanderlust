@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entities;
+package Models.Entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,7 +23,7 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public Long userId() {
+    public Long getuserId() {
         return userId;
     }
 

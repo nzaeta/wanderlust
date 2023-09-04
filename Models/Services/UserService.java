@@ -1,9 +1,9 @@
-package com.nicoz.NZWanderlust.Models.services;
+package Models.Services;
 
-import com.nicoz.NZWanderlust.Models.entities.ReputationScore;
-import com.nicoz.NZWanderlust.Models.entities.User;
-import com.nicoz.NZWanderlust.Models.entities.UserLevel;
-import com.nicoz.NZWanderlust.Models.repository.UserRepository;
+import com.nicoz.NZWanderlust.Entities.ReputationScore;
+import com.nicoz.NZWanderlust.Entities.User;
+import com.nicoz.NZWanderlust.Entities.UserLevel;
+import com.nicoz.NZWanderlust.Repositories.UserRepository;
 import com.nicoz.NZWanderlust.NewUserRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

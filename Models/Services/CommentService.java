@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Services;
+package Models.Services;
 
 import com.nicoz.NZWanderlust.Entities.Comment;
 import com.nicoz.NZWanderlust.NewCommentRequest;
@@ -24,8 +24,7 @@ public class CommentService {
 
     public void addComment(NewCommentRequest commentRequest){
         Comment comment = new Comment();
-        comment.setBuyerId(commentRequest.getBuyerId());
-        comment.setSellerId(commentRequest.getSellerId());
+        comment.setUserId(commentRequest.getUserId());
         comment.setTitle(commentRequest.getTitle());
         comment.setDetails(commentRequest.getDetails());
         comment.setScore(commentRequest.getScore());
@@ -38,8 +37,7 @@ public class CommentService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         Comment comment = optionalComment.get();
-        comment.setBuyerId(commentDetails.getBuyerId());
-        comment.setSellerId(commentDetails.getSellerId());
+        comment.setUserId(commentDetails.getuserId());
         comment.setTitle(commentDetails.getTitle());
         comment.setDetails(commentDetails.getDetails());
         comment.setScore(commentDetails.getScore());

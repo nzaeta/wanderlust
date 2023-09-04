@@ -1,10 +1,10 @@
-package com.nicoz.NZWanderlust.Services;
+package Models.Services;
 
 import com.nicoz.NZWanderlust.NewDataPaymentRequest;
 import com.nicoz.NZWanderlust.NewPaymentMethodRequest;
 import com.nicoz.NZWanderlust.Entities.DataPayment;
 import com.nicoz.NZWanderlust.Entities.PaymentMethod;
-import com.nicoz.NZWanderlust.Repositories.IPaymentMethodRepository;
+import com.nicoz.NZWanderlust.Repositories.PaymentMethodRepository;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +16,9 @@ import java.util.Optional;
 
 @Service
 public class PaymentMethodService {
-    private final IPaymentMethodRepository paymentMethodRepository;
+    private final PaymentMethodRepository paymentMethodRepository;
 
-    public PaymentMethodService(IPaymentMethodRepository paymentMethodRepository) {
+    public PaymentMethodService(PaymentMethodRepository paymentMethodRepository) {
         this.paymentMethodRepository = paymentMethodRepository;
     }
     
@@ -35,7 +35,7 @@ public class PaymentMethodService {
 
     public void addPaymentMethod(NewDataPaymentRequest dataPaymentRequest){
         PaymentMethod paymentMethod = new PaymentMethod();
-        paymentMethod.setUser(userService.get(dataPaymentRequest.getUserId()));
+        paymentMethod.setUser(userService.getUser(dataPaymentRequest.getUserId()));
         
         DataPayment dataPayment = dataPaymentService.addDataPayment(dataPaymentRequest);
         

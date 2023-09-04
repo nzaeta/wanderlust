@@ -1,6 +1,6 @@
-package com.nicoz.NZWanderlust;
+package Models;
 
-import com.nicoz.NZWanderlust.Models.entities.User;
+import com.nicoz.NZWanderlust.Entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

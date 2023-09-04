@@ -1,6 +1,6 @@
-package com.nicoz.NZWanderlust.Models.repository;
+package Models.Repositories;
 
-import com.nicoz.NZWanderlust.Models.entities.User;
+import com.nicoz.NZWanderlust.Entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

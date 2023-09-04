@@ -1,6 +1,5 @@
-package com.nicoz.NZWanderlust.Services;
+package Models.Services;
 
-import com.nicoz.NZWanderlust.Entities.Seller;
 import com.nicoz.NZWanderlust.Entities.SupportTicket;
 import com.nicoz.NZWanderlust.NewSupportTicketRequest;
 import com.nicoz.NZWanderlust.Repositories.SupportTicketRepository;
