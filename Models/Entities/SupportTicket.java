@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entities;
+package com.nicoz.NZWanderlust.Services;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

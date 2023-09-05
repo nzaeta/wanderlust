@@ -1,11 +1,15 @@
 package com.nicoz.NZWanderlust.Services;
+
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
 import com.nicoz.NZWanderlust.Entities.Post;
+import com.nicoz.NZWanderlust.Entities.User;
 import com.nicoz.NZWanderlust.Repositories.PostRepository;
 
 @Service
@@ -16,6 +20,9 @@ public class PostService {
 	public PostService(PostRepository postRepository) {
 		this.postRepository = postRepository;
 	}
+	
+	@Autowired
+	private TicketTravelBuyerService ticketTravelBuyerService;
 
 	@Transactional
 	public Post newPost(Post post) {
@@ -28,13 +35,27 @@ public class PostService {
 		newPost.setEndDate(post.getEndDate());
 		newPost.setImages(post.getImages());
 		newPost.setPrice(post.getPrice());
-		newPost.setNumberOfTickets(0);
+		newPost.setNumberOfTickets(post.getNumberOfTickets());
 		newPost.setTransport(post.getTransport());
 		newPost.setHotel(post.getHotel());
 		newPost.setFood(post.getFood());
 		newPost.setTouristicPlan(post.getTouristicPlan());
+		newPost.setType(post.getType());	
+		newPost.setMonth(post.getMonth());
 		
-		return postRepository.save(newPost);
+		Post savedPost = postRepository.save(newPost);
+		
+		NewTicketTravelBuyerRequest ticketTravelBuyerRequest = new NewTicketTravelBuyerRequest(
+				savedPost, null, savedPost.getPrice(), savedPost.getStartDate(),
+				savedPost.getEndDate());
+		
+		
+		for (int i = 0; i < post.getNumberOfTickets(); i++) {
+			ticketTravelBuyerService.addTicketTravelBuyer(ticketTravelBuyerRequest);
+		}
+		
+		
+		return savedPost;
 
 	}
 
@@ -54,6 +75,10 @@ public class PostService {
     public List<Post> getPosts(){
         return postRepository.findAll();
     }
+    
+    public List<Post> getPostsByMonth(String mes){
+        return postRepository.getPostsByMonth(mes);
+    }
 
 	@Transactional
 	public Post updatePost(Integer id, Post post)  {
@@ -64,11 +89,13 @@ public class PostService {
 		postToUpdate.setEndDate(post.getEndDate());
 		postToUpdate.setImages(post.getImages());
 		postToUpdate.setPrice(post.getPrice());
-		postToUpdate.setNumberOfTickets(0);
+		postToUpdate.setNumberOfTickets(post.getNumberOfTickets());
 		postToUpdate.setTransport(post.getTransport());
 		postToUpdate.setHotel(post.getHotel());
 		postToUpdate.setFood(post.getFood());
 		postToUpdate.setTouristicPlan(post.getTouristicPlan());
+		postToUpdate.setType(post.getType());	
+		postToUpdate.setMonth(post.getMonth());
 
 		return postRepository.save(postToUpdate);
 

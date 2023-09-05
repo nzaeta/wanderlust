@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entities;
+package com.nicoz.NZWanderlust.Services;
 
 import java.util.List;
 
@@ -31,8 +31,10 @@ public class Post {
 	private String hotel;		
 	private String food;
 	private String touristicPlan;
+	private String type;
+	private String month;
 
-	@OneToMany
+	@OneToMany(mappedBy="post")
 	@JsonIgnore
     private List<TicketTravelBuyer> ticketTravelBuyer;
 	

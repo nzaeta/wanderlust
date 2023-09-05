@@ -1,18 +1,17 @@
 package com.nicoz.NZWanderlust;
 
+import com.nicoz.NZWanderlust.Entities.Post;
 import com.nicoz.NZWanderlust.Entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @AllArgsConstructor
 @Data
 public class NewTicketTravelBuyerRequest {
-    private Long postId;
+    private Post post;
     private User user;
-    private String price;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Double price;
+    private String startDate;
+    private String endDate;
 
 }

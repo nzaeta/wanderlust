@@ -1,4 +1,5 @@
-package com.nicoz.NZWanderlust.Entities;
+package com.nicoz.NZWanderlust.Services;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -11,14 +12,15 @@ public class TicketTravelBuyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ticketTravelBuyerId;
-    private Long postId;
+    @ManyToOne
+    private Post post;
     @ManyToOne()
     @JoinColumn(name = "userId")
     @JsonBackReference
     private User user;
-    private String price;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Double price;
+    private String startDate;
+    private String endDate;
 
 
 }

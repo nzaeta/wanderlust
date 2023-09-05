@@ -31,7 +31,7 @@ public class TicketTravelBuyerService {
     //only when post entity is generated
     public TicketTravelBuyer addTicketTravelBuyer(NewTicketTravelBuyerRequest ticketTravelBuyerRequest) {
         TicketTravelBuyer ticketTravelBuyer = new TicketTravelBuyer();
-        ticketTravelBuyer.setPostId(ticketTravelBuyerRequest.getPostId());
+        ticketTravelBuyer.setPost(ticketTravelBuyerRequest.getPost());
         ticketTravelBuyer.setUser(ticketTravelBuyerRequest.getUser());
         ticketTravelBuyer.setPrice(ticketTravelBuyerRequest.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerRequest.getStartDate());
@@ -47,7 +47,7 @@ public class TicketTravelBuyerService {
         }
 
         TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
-        ticketTravelBuyer.setPostId(ticketTravelBuyerDetails.getPostId());
+        ticketTravelBuyer.setPost(ticketTravelBuyerDetails.getPost());
         ticketTravelBuyer.setPrice(ticketTravelBuyerDetails.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());
         ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());

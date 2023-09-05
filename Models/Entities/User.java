@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Entities;
+package com.nicoz.NZWanderlust.Services;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
