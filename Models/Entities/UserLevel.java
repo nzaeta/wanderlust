@@ -1,4 +1,4 @@
-package com.nicoz.NZWanderlust.Models.entities;
+package com.nicoz.NZWanderlust.Entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

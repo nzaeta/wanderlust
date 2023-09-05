@@ -2,7 +2,7 @@ package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.NewDataPaymentRequest;
 import com.nicoz.NZWanderlust.Entities.DataPayment;
-import com.nicoz.NZWanderlust.Repositories.IDataPaymentRepository;
+import com.nicoz.NZWanderlust.Repositories.DataPaymentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

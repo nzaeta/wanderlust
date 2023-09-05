@@ -1,4 +1,4 @@
-package Models.Services;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.Entities.Comment;
 import com.nicoz.NZWanderlust.NewCommentRequest;
@@ -37,7 +37,7 @@ public class CommentService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         Comment comment = optionalComment.get();
-        comment.setUserId(commentDetails.getuserId());
+        comment.setUserId(commentDetails.getUserId());
         comment.setTitle(commentDetails.getTitle());
         comment.setDetails(commentDetails.getDetails());
         comment.setScore(commentDetails.getScore());

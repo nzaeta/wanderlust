@@ -1,10 +1,9 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
-import com.nicoz.NZWanderlust.Models.entities.TicketTravelBuyer;
-import com.nicoz.NZWanderlust.Models.entities.User;
-import com.nicoz.NZWanderlust.Models.services.TicketTravelBuyerService;
-import com.nicoz.NZWanderlust.Models.services.UserService;
-import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Entities.User;
+import com.nicoz.NZWanderlust.Services.TicketTravelBuyerService;
+import com.nicoz.NZWanderlust.Services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

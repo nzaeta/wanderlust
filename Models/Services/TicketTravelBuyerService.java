@@ -1,4 +1,4 @@
-package Models.Services;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
 import com.nicoz.NZWanderlust.Repositories.TicketTravelBuyerRepository;
@@ -47,11 +47,10 @@ public class TicketTravelBuyerService {
         }
 
         TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
-        ticketTravelBuyer.setPostId(ticketTravelBuyerDetails.getPostId()); //?
-        //ticketTravelBuyer.setUser(ticketTravelBuyerDetails.getUser()); //?
+        ticketTravelBuyer.setPostId(ticketTravelBuyerDetails.getPostId());
         ticketTravelBuyer.setPrice(ticketTravelBuyerDetails.getPrice());
-        ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());  //?
-        ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());         //?
+        ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());
+        ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());
         TicketTravelBuyer updatedTicketTravelBuyer = ticketTravelBuyerRepository.save(ticketTravelBuyer);
         return new ResponseEntity<>(updatedTicketTravelBuyer, HttpStatus.OK);
     }
@@ -60,12 +59,6 @@ public class TicketTravelBuyerService {
         ticketTravelBuyerRepository.deleteById(id);
     }
 
-    /* public List<TicketTravelBuyer> getTicketTravelBuyersByUser(Long id){
-         List<TicketTravelBuyer> tickets = ticketTravelBuyerRepository.findAll();
-         System.out.println(tickets);
-         tickets.stream().filter((e) -> e.getBuyer().getBuyerId() == (Long) id).collect(Collectors.toList());
-         return tickets;
-     }*/
     public TicketTravelBuyer updateOnlyTicketTravelBuyer(Long id, TicketTravelBuyer ticketTravelBuyerDetails) {
         Optional<TicketTravelBuyer> optionalTicketTravelBuyer = ticketTravelBuyerRepository.findById(id);
         if (!optionalTicketTravelBuyer.isPresent()) {

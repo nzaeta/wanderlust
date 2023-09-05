@@ -10,16 +10,19 @@ import com.nicoz.NZWanderlust.Repositories.PostRepository;
 
 @Service
 public class PostService {
-	
-	@Autowired
+
 	private PostRepository postRepository;
-	
+
+	public PostService(PostRepository postRepository) {
+		this.postRepository = postRepository;
+	}
+
 	@Transactional
 	public Post newPost(Post post) {
 
 		Post newPost = new Post();
 		
-		newPost.setTitle(post.getTitle());		
+		newPost.setTitle(post.getTitle());
 		newPost.setDescription(post.getDescription());	
 		newPost.setStartDate(post.getStartDate());
 		newPost.setEndDate(post.getEndDate());
@@ -29,7 +32,7 @@ public class PostService {
 		newPost.setTransport(post.getTransport());
 		newPost.setHotel(post.getHotel());
 		newPost.setFood(post.getFood());
-		newPost.setTuristicPlan(post.getTuristicPlan());
+		newPost.setTouristicPlan(post.getTouristicPlan());
 		
 		return postRepository.save(newPost);
 
@@ -51,11 +54,11 @@ public class PostService {
     public List<Post> getPosts(){
         return postRepository.findAll();
     }
-	
+
 	@Transactional
 	public Post updatePost(Integer id, Post post)  {
 		Post postToUpdate = searchPost(id);
-		postToUpdate.setTitle(post.getTitle());		
+		postToUpdate.setTitle(post.getTitle());
 		postToUpdate.setDescription(post.getDescription());	
 		postToUpdate.setStartDate(post.getStartDate());
 		postToUpdate.setEndDate(post.getEndDate());
@@ -65,7 +68,7 @@ public class PostService {
 		postToUpdate.setTransport(post.getTransport());
 		postToUpdate.setHotel(post.getHotel());
 		postToUpdate.setFood(post.getFood());
-		postToUpdate.setTuristicPlan(post.getTuristicPlan());	
+		postToUpdate.setTouristicPlan(post.getTouristicPlan());
 
 		return postRepository.save(postToUpdate);
 

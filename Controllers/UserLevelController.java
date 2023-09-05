@@ -1,7 +1,7 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
-import com.nicoz.NZWanderlust.Models.entities.UserLevel;
-import com.nicoz.NZWanderlust.Models.services.UserLevelService;
+import com.nicoz.NZWanderlust.Entities.UserLevel;
+import com.nicoz.NZWanderlust.Services.UserLevelService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

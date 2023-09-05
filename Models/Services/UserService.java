@@ -1,4 +1,4 @@
-package Models.Services;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.Entities.ReputationScore;
 import com.nicoz.NZWanderlust.Entities.User;
@@ -45,9 +45,6 @@ public class UserService {
 
     public ResponseEntity<User> updateUser(Long id, User userDetails) {
         Optional<User> optionalUser = userRepository.findById(id);
-        if (optionalUser.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         User user = optionalUser.get();
         user.setUsername(userDetails.getUsername());
         user.setPassword(userDetails.getPassword());
@@ -70,11 +67,6 @@ public class UserService {
         return null;*/
         userRepository.deleteById(id);
     }
-
- /*   private boolean userHasActiveTickets(User user) {
-        if(user.getTicketTravelBuyerList().isEmpty()){ return true; }
-        return false;
-    }*/
 
 
     public User updateOnlyUser(Long id, User userDetails) {

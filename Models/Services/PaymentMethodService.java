@@ -1,18 +1,13 @@
-package Models.Services;
+package com.nicoz.NZWanderlust.Services;
 
 import com.nicoz.NZWanderlust.NewDataPaymentRequest;
-import com.nicoz.NZWanderlust.NewPaymentMethodRequest;
 import com.nicoz.NZWanderlust.Entities.DataPayment;
 import com.nicoz.NZWanderlust.Entities.PaymentMethod;
 import com.nicoz.NZWanderlust.Repositories.PaymentMethodRepository;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PaymentMethodService {
@@ -42,17 +37,6 @@ public class PaymentMethodService {
         paymentMethod.setDataPayment(dataPayment);
         paymentMethodRepository.save(paymentMethod);
     }
-
-//    public ResponseEntity<PaymentMethod> updatePaymentMethod(Long id, PaymentMethod paymentMethodDetails){
-//        Optional<PaymentMethod> optionalPaymentMethod = paymentMethodRepository.findById(id);
-//        if(!optionalPaymentMethod.isPresent()){
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//        PaymentMethod paymentMethod = optionalPaymentMethod.get();
-//        paymentMethod.setDataPaymentId(paymentMethodDetails.getDataPaymentId());
-//        PaymentMethod updatePaymentmethod = paymentMethodRepository.save(paymentMethod);
-//        return new ResponseEntity<>(updatePaymentmethod, HttpStatus.OK);
-//    }
 
     public void delete(Long id){ 
     	PaymentMethod paymentMethod = paymentMethodRepository.findById(id).get();

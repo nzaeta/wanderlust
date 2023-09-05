@@ -6,15 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
-
-import jakarta.persistence.FetchType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Data
@@ -34,15 +30,12 @@ public class Post {
 	private String transport;	
 	private String hotel;		
 	private String food;
-	private String turisticPlan;
+	private String touristicPlan;
 
-	@OneToMany(mappedBy="post", fetch = FetchType.LAZY)
+	@OneToMany
 	@JsonIgnore
-    private List<TicketTravelBuyer> ticketTravelBuyer; 
+    private List<TicketTravelBuyer> ticketTravelBuyer;
 	
 	public Post() {
 	}
-	
-	
-	
 }

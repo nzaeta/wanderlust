@@ -1,4 +1,4 @@
-package Models;
+package com.nicoz.NZWanderlust;
 
 import com.nicoz.NZWanderlust.Entities.User;
 import lombok.AllArgsConstructor;

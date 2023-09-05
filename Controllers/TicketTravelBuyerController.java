@@ -1,7 +1,7 @@
-package com.nicoz.NZWanderlust.controller;
+package com.nicoz.NZWanderlust.Controllers;
 
-import com.nicoz.NZWanderlust.Models.entities.TicketTravelBuyer;
-import com.nicoz.NZWanderlust.Models.services.TicketTravelBuyerService;
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Services.TicketTravelBuyerService;
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +16,6 @@ public class TicketTravelBuyerController {
         this.ticketTravelBuyerService = ticketTravelBuyerService;
     }
 
-    /*@GetMapping("/ticketTravelBuyer")
-    public List<TicketTravelBuyer> getTicketTravelBuyers(){
-        return ticketTravelBuyerService.getTicketTravelBuyers();
-    }*/
     @GetMapping("/ticketTravelBuyer")
     public List<TicketTravelBuyer> getTicketTravelBuyers(){
         return ticketTravelBuyerService.getTicketTravelBuyers();}

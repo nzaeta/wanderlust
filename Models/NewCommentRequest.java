@@ -1,4 +1,4 @@
-package Models;
+package com.nicoz.NZWanderlust;
 
 public class NewCommentRequest {
     private Long userId;
