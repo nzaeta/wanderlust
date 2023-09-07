@@ -1,8 +1,8 @@
 package com.nicoz.NZWanderlust.Controllers;
 
 import com.nicoz.NZWanderlust.NewReputationScoreRequest;
-import com.nicoz.NZWanderlust.Entities.ReputationScore;
-import com.nicoz.NZWanderlust.Services.ReputationScoreService;
+import com.nicoz.NZWanderlust.Model.Entities.ReputationScore;
+import com.nicoz.NZWanderlust.Model.Services.ReputationScoreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

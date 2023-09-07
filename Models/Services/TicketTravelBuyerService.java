@@ -1,10 +1,8 @@
 package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
-import com.nicoz.NZWanderlust.Repositories.TicketTravelBuyerRepository;
-
+import com.nicoz.NZWanderlust.Model.Entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Model.Repository.TicketTravelBuyerRepository;
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,7 +29,7 @@ public class TicketTravelBuyerService {
     //only when post entity is generated
     public TicketTravelBuyer addTicketTravelBuyer(NewTicketTravelBuyerRequest ticketTravelBuyerRequest) {
         TicketTravelBuyer ticketTravelBuyer = new TicketTravelBuyer();
-        ticketTravelBuyer.setPost(ticketTravelBuyerRequest.getPost());
+        ticketTravelBuyer.setPostId(ticketTravelBuyerRequest.getPost());
         ticketTravelBuyer.setUser(ticketTravelBuyerRequest.getUser());
         ticketTravelBuyer.setPrice(ticketTravelBuyerRequest.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerRequest.getStartDate());
@@ -47,18 +45,34 @@ public class TicketTravelBuyerService {
         }
 
         TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
-        ticketTravelBuyer.setPost(ticketTravelBuyerDetails.getPost());
+        //ticketTravelBuyer.setPostId(ticketTravelBuyerDetails.getPostId()); //?
+        //ticketTravelBuyer.setUser(ticketTravelBuyerDetails.getUser()); //?
         ticketTravelBuyer.setPrice(ticketTravelBuyerDetails.getPrice());
-        ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());
-        ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());
+        ticketTravelBuyer.setStartDate(ticketTravelBuyerDetails.getStartDate());  //?
+        ticketTravelBuyer.setEndDate(ticketTravelBuyer.getEndDate());         //?
         TicketTravelBuyer updatedTicketTravelBuyer = ticketTravelBuyerRepository.save(ticketTravelBuyer);
         return new ResponseEntity<>(updatedTicketTravelBuyer, HttpStatus.OK);
     }
 
     public void deleteTicketTravelBuyer(Long id) {
+        Optional<TicketTravelBuyer> optionalTicketTravelBuyer = ticketTravelBuyerRepository.findById(id);
+        if (!optionalTicketTravelBuyer.isPresent()) {
+            //return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        TicketTravelBuyer ticketTravelBuyer = optionalTicketTravelBuyer.get();
+
+        ticketTravelBuyer.setUser(null);
+        ticketTravelBuyerRepository.save(ticketTravelBuyer); //the relationship with user is deleted
         ticketTravelBuyerRepository.deleteById(id);
+        System.out.println("TTB is deleted");
     }
 
+    /* public List<TicketTravelBuyer> getTicketTravelBuyersByUser(Long id){
+         List<TicketTravelBuyer> tickets = ticketTravelBuyerRepository.findAll();
+         System.out.println(tickets);
+         tickets.stream().filter((e) -> e.getBuyer().getBuyerId() == (Long) id).collect(Collectors.toList());
+         return tickets;
+     }*/
     public TicketTravelBuyer updateOnlyTicketTravelBuyer(Long id, TicketTravelBuyer ticketTravelBuyerDetails) {
         Optional<TicketTravelBuyer> optionalTicketTravelBuyer = ticketTravelBuyerRepository.findById(id);
         if (!optionalTicketTravelBuyer.isPresent()) {

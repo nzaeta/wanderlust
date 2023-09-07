@@ -1,7 +1,7 @@
 package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Entities.UserLevel;
-import com.nicoz.NZWanderlust.Repositories.UserLevelRepository;
+import com.nicoz.NZWanderlust.Model.Entities.UserLevel;
+import com.nicoz.NZWanderlust.Model.Repository.UserLevelRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -55,6 +55,19 @@ public class UserLevelService {
 		userLevelToUpdate.setProfit(userLevel.getProfit());
 		UserLevel userLevelUpdate = userLevelRepository.save(userLevelToUpdate);
 		return new ResponseEntity<>(userLevelUpdate,HttpStatus.OK);
+
+	}
+	public UserLevel updateOnlyUserLevel(Long id, UserLevel userLevel)  { /* */
+		Optional<UserLevel> optionalUserLevel = userLevelRepository.findById(id);
+		if(!optionalUserLevel.isPresent()){
+			return null;
+		}
+		UserLevel userLevelToUpdate = optionalUserLevel.get();
+		userLevelToUpdate.setLevelName(userLevel.getLevelName());
+		userLevelToUpdate.setNumberOfTickets(userLevel.getNumberOfTickets());
+		userLevelToUpdate.setProfit(userLevel.getProfit());
+		UserLevel userLevelUpdate = userLevelRepository.save(userLevelToUpdate);
+		return userLevelUpdate;
 
 	}
 }

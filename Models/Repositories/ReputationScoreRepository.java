@@ -1,6 +1,6 @@
 package com.nicoz.NZWanderlust.Repositories;
 
-import com.nicoz.NZWanderlust.Entities.ReputationScore;
+import com.nicoz.NZWanderlust.Model.Entities.ReputationScore;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
