@@ -1,7 +1,7 @@
 package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Model.Entities.TicketTravelBuyer;
-import com.nicoz.NZWanderlust.Model.Repository.TicketTravelBuyerRepository;
+import com.nicoz.NZWanderlust.Entities.TicketTravelBuyer;
+import com.nicoz.NZWanderlust.Repositories.TicketTravelBuyerRepository;
 import com.nicoz.NZWanderlust.NewTicketTravelBuyerRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ public class TicketTravelBuyerService {
     //only when post entity is generated
     public TicketTravelBuyer addTicketTravelBuyer(NewTicketTravelBuyerRequest ticketTravelBuyerRequest) {
         TicketTravelBuyer ticketTravelBuyer = new TicketTravelBuyer();
-        ticketTravelBuyer.setPostId(ticketTravelBuyerRequest.getPost());
+        ticketTravelBuyer.setPost(ticketTravelBuyerRequest.getPost());
         ticketTravelBuyer.setUser(ticketTravelBuyerRequest.getUser());
         ticketTravelBuyer.setPrice(ticketTravelBuyerRequest.getPrice());
         ticketTravelBuyer.setStartDate(ticketTravelBuyerRequest.getStartDate());

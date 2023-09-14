@@ -1,7 +1,7 @@
 package com.nicoz.NZWanderlust.Services;
 
-import com.nicoz.NZWanderlust.Model.Entities.UserLevel;
-import com.nicoz.NZWanderlust.Model.Repository.UserLevelRepository;
+import com.nicoz.NZWanderlust.Entities.UserLevel;
+import com.nicoz.NZWanderlust.Repositories.UserLevelRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
