@@ -82,6 +82,17 @@ https://www.youtube.com/watch?v=IeezELbhS0Y
 
 # 📸 Capturas de la aplicación: 
 
+![wander01](https://github.com/nzaeta/wanderlust/assets/106348660/7df74379-39fc-4621-a084-1cf27310099e)
+
+![wander02](https://github.com/nzaeta/wanderlust/assets/106348660/ce9f3326-ac29-4f3b-9fc3-5319ced4d7b8)
+
+![wander03](https://github.com/nzaeta/wanderlust/assets/106348660/2299aa5e-9297-4ed9-8828-6192e5caa7c8)
+
+![wander04](https://github.com/nzaeta/wanderlust/assets/106348660/4109ceb5-48af-4591-abfd-4d52bdca2897)
+
+![wander05](https://github.com/nzaeta/wanderlust/assets/106348660/3fd7bf14-9dcb-4f70-a130-acabd4183860)
+
+![wander06](https://github.com/nzaeta/wanderlust/assets/106348660/5a01cebe-f0e1-4831-8581-e0b239f2b742)
 
 
 ## ✨ ¡Muchas gracias! ✨
