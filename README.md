@@ -45,13 +45,13 @@ https://www.youtube.com/watch?v=IeezELbhS0Y
           </a>
       </td>
          <td style="border: 1px #000000 solid">
-        <a href='https://postimg.cc/hQ7HWd1n' target='_blank'><img src='https://i.postimg.cc/hQ7HWd1n/image.jpg' border='0' alt='image'/></a>
-        <h4 style="margin-top: 1rem;">Tomas Villagra</h4>
+<a href='https://postimg.cc/WqNBFDYR' target='_blank'><img src='https://i.postimg.cc/WqNBFDYR/lisandro.jpg' border='0' alt='lisandro'/></a>
+        <h4 style="margin-top: 1rem;">Lisandro Salvareschi</h4>
         <h4 style="margin-top: 1rem;">Frontend Developer</h4>
-          <a href="https://github.com/TomasFE1" target="_blank">
+          <a href="https://github.com/slisandro" target="_blank">
             <img src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
           </a>
-          <a href="https://www.linkedin.com/in/" target="_blank">
+          <a href="https://www.linkedin.com/in/salvareschilisandro/" target="_blank">
             <img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
           </a>
       </td>
